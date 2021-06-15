@@ -9,11 +9,11 @@ Bursa Teknik Üniversitesi Web Tabanlı Programlama Dilleri dersi için PHP ve M
 
 # Site kullanımı ve görüntüleri
 
-<img src="images/giris.png" >
+<img src="images/giriş.png" height="450" >
 
 Hesabınız varsa bu sayfadan e-posta ve şifreniz ile giriş yapabilirsiniz.
 
-<img src="images/kayit.png" >
+<img src="images/kayit.png" height="450" >
 
 Hesabınız  yoksa yeni bir hesap oluşturmak için gerekli alanları doldurmanız gerekiyor. Kayıt olduktan sonra anasayfaya yönlendirileceksiniz.
 
