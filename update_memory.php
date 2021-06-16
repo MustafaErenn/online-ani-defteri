@@ -43,6 +43,35 @@
         
         $updatedPostId=$_GET['update'];
         
+        if($updateMemoryStatus=='Mutlu'){
+            $updateMemoryEmojiCode="&#x1F600;";
+            $updateMemoryEmojiColor="success";
+        }
+        else if($updateMemoryStatus=='Normal'){
+            $updateMemoryEmojiCode="&#x1F610;";
+            $updateMemoryEmojiColor="primary";
+        }
+        else if($updateMemoryStatus=='Üzgün'){
+            $updateMemoryEmojiCode="&#x1F622;";
+            $updateMemoryEmojiColor="secondary";
+        }
+        else if($updateMemoryStatus=='Korkmuş'){
+            $updateMemoryEmojiCode="&#x1F628;";
+            $updateMemoryEmojiColor="dark";
+        }
+        else if($updateMemoryStatus=='Öfkeli'){
+            $updateMemoryEmojiCode="&#x1F620;";
+            $updateMemoryEmojiColor="danger";
+        }
+        else if($updateMemoryStatus=='Utanmış'){
+            $updateMemoryEmojiCode="&#x1F633;";
+            $updateMemoryEmojiColor="warning";
+        }
+        else if($updateMemoryStatus=='Şaşkın'){
+            $updateMemoryEmojiCode="&#x1F62E;";
+            $updateMemoryEmojiColor="info";
+        }
+
 
         $updateMemoryDate=date("Y-m-d", strtotime($updateMemoryDate));
         
@@ -58,9 +87,9 @@
         }
 
         if(count($memoryUpdateErrors)===0){
-            $sqlUpdateKayit = "UPDATE hatiralar SET  HatiraIcerik=?,Baslik=?,Tarih=?,DuyguDurumu=? where ID=?  ";
+            $sqlUpdateKayit = "UPDATE hatiralar SET  HatiraIcerik=?,Baslik=?,Tarih=?,DuyguDurumu=?,DuyguEmoji=?,DuyguRenk=? where ID=?  ";
             $stmt = $baglanti -> prepare($sqlUpdateKayit);
-            $stmt -> bind_param('ssssi',$updateMemoryContent,$updateMemoryTitle,$updateMemoryDate,$updateMemoryStatus,$updatedPostId);
+            $stmt -> bind_param('ssssssi',$updateMemoryContent,$updateMemoryTitle,$updateMemoryDate,$updateMemoryStatus,$updateMemoryEmojiCode,$updateMemoryEmojiColor,$updatedPostId);
             if($stmt->execute()){
                 header('location: index.php');
                 exit();
